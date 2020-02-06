@@ -12,10 +12,12 @@ function mostrarAumento()
     descuento = 25
     divisor = 100
 
-    sueldo = parseInt(document.getElementById("importe").value);
+    //Reemplazo función ParseInt por parseFloat para obtener números decimales de ser necesario
+    sueldo = parseFloat(document.getElementById("importe").value);
 
     descuento = (sueldo * descuento) / divisor;
     resultado = sueldo - descuento;
 
-    document.getElementById("resultado").value = resultado;
+    //ingreso función "toFixed" para determinar la cantidad de decimales que quiero que se vean
+    document.getElementById("resultado").value = resultado.toFixed(2);
 }
