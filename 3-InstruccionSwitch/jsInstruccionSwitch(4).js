@@ -6,12 +6,12 @@ function mostrar() {
         case "Abril":
         case "Junio":
         case "Septiembre":
+        case "Noviembre":
 
             alert("Este mes tiene 30 días");
             break;
 
         case "Febrero":
-        case "Noviembre":
 
             alert("Este mes tiene 29 días");
             break;
