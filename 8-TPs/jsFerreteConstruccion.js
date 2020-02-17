@@ -6,7 +6,6 @@ C.	Para hacer un contrapiso de 1m x 1m se necesitan 2 bolsas de cemento y 3 de c
 {
 var altura;
 var base;
-var circunferencia;
 var radio;
 var alambre;
 var resultado;

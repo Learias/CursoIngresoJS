@@ -8,7 +8,171 @@ E.	Si el importe final con descuento suma más de $120  se debe sumar un 10% de 
  ”Usted pago X de IIBB.”, siendo X el impuesto que se pagó. 
 
  */
-function CalcularPrecio () 
-{
- 	
+
+
+
+
+function CalcularPrecio() {
+
+    var cantidad = parseInt(document.getElementById("Cantidad").value);
+    var preciolamparas = 35;
+    var marca = document.getElementById("Marca").value;
+    var importefinal;
+    var descuento;
+    var precioconIB;
+    var IB;
+
+    while (cantidad < 1 || isNaN(cantidad))
+    cantidad = prompt("El dato ingresado no es un número, ingreselo nuevamente ");
+    document.getElementById("Cantidad").value = cantidad;
+    
+       
+
+    if (cantidad >= 6) {
+
+
+        preciolamparas = cantidad * preciolamparas;
+        descuento = preciolamparas * 50 / 100;
+        importefinal = preciolamparas - descuento;
+        console.log(importefinal);
+        document.getElementById("precioDescuento").value = importefinal;
+
+    } else {
+
+    }
+    if (cantidad == 5) {
+
+
+        switch (marca) {
+
+            case "ArgentinaLuz":
+                preciolamparas = cantidad * preciolamparas;
+                descuento = preciolamparas * 40 / 100;
+                importefinal = preciolamparas - descuento;
+                console.log(importefinal);
+                document.getElementById("precioDescuento").value = importefinal;
+
+                break;
+
+            default:
+
+                preciolamparas = cantidad * preciolamparas;
+                descuento = preciolamparas * 30 / 100;
+                importefinal = preciolamparas - descuento;
+                console.log(importefinal);
+                document.getElementById("precioDescuento").value = importefinal;
+
+
+
+        }
+    } else {
+        if (cantidad == 4) {
+
+            switch (marca) {
+                case "ArgentinaLuz":
+                    preciolamparas = cantidad * preciolamparas;
+                    descuento = preciolamparas * 25 / 100;
+                    importefinal = preciolamparas - descuento;
+                    console.log(importefinal);
+                    document.getElementById("precioDescuento").value = importefinal;
+
+                    break;
+
+                case "FelipeLamparas":
+                    preciolamparas = cantidad * preciolamparas;
+                    descuento = preciolamparas * 25 / 100;
+                    importefinal = preciolamparas - descuento;
+                    console.log(importefinal);
+                    document.getElementById("precioDescuento").value = importefinal;
+
+                    break;
+
+                default:
+                    preciolamparas = cantidad * preciolamparas;
+                    descuento = preciolamparas * 20 / 100;
+                    importefinal = preciolamparas - descuento;
+                    console.log(importefinal);
+                    document.getElementById("precioDescuento").value = importefinal;
+
+
+
+            }
+
+        }
+
+        if (cantidad == 3) {
+
+            switch (marca) {
+                case "ArgentinaLuz":
+                    preciolamparas = cantidad * preciolamparas;
+                    descuento = preciolamparas * 15 / 100;
+                    importefinal = preciolamparas - descuento;
+                    console.log(importefinal);
+                    document.getElementById("precioDescuento").value = importefinal;
+
+                    break;
+                case "FelipeLamparas":
+                    preciolamparas = cantidad * preciolamparas;
+                    descuento = preciolamparas * 10 / 100;
+                    importefinal = preciolamparas - descuento;
+                    console.log(importefinal);
+                    document.getElementById("precioDescuento").value = importefinal;
+                    break;
+
+                default:
+                    preciolamparas = cantidad * preciolamparas;
+                    descuento = preciolamparas * 5 / 100;
+                    importefinal = preciolamparas - descuento;
+                    console.log(importefinal);
+                    document.getElementById("precioDescuento").value = importefinal;
+
+
+            }
+        } if (cantidad <= 2) {
+
+            preciolamparas = cantidad * preciolamparas;
+            importefinal = preciolamparas
+            console.log(importefinal);
+            document.getElementById("precioDescuento").value = importefinal;
+
+
+        }
+
+        if (importefinal < 120) {
+
+            document.getElementById("precioDescuento").value = importefinal;
+
+        } else {
+
+
+            IB = importefinal * 0.10;
+            precioconIB = importefinal + IB;
+
+            document.getElementById("precioDescuento").value = precioconIB;
+            alert("Usted pago " + precioconIB + ", siendo " + IB + " el impuesto que se pagó");
+
+
+        }
+
+
+    }
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
