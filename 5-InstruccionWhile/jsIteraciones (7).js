@@ -13,7 +13,7 @@ function mostrar() {
 		//acumula en valores variables
 		acumulador = numero + acumulador;
 		//acumula en valores constantes
-		contador++;
+		contador++; // (contador + 1)
 		seguir = prompt('Quiere volver a ingresar otro número? ');
 
 	} while (seguir == 'si') ;
