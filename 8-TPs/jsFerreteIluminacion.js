@@ -23,10 +23,10 @@ function CalcularPrecio() {
     var IIBB;
 
     while (cantidad < 1 || isNaN(cantidad))
-        cantidad = prompt("El dato ingresado no es un número, ingreselo nuevamente ");
+    cantidad = prompt("El dato ingresado no es un número, ingreselo nuevamente ");
     document.getElementById("Cantidad").value = cantidad;
-
-
+    
+       
 
     if (cantidad >= 6) {
 
@@ -35,7 +35,7 @@ function CalcularPrecio() {
         descuento = preciolamparas * 50 / 100;
         importefinal = preciolamparas - descuento;
         console.log(importefinal);
-        document.getElementById("precioDescuento").value = importefinal;
+        
 
     } else {
 
@@ -50,21 +50,15 @@ function CalcularPrecio() {
                 descuento = preciolamparas * 40 / 100;
                 importefinal = preciolamparas - descuento;
                 console.log(importefinal);
-                document.getElementById("precioDescuento").value = importefinal;
-
+                
                 break;
 
-            default:
+               default:
 
                 preciolamparas = cantidad * preciolamparas;
                 descuento = preciolamparas * 30 / 100;
                 importefinal = preciolamparas - descuento;
-                console.log(importefinal);
-                document.getElementById("precioDescuento").value = importefinal;
-
-
-
-        }
+                console.log(importefinal); }
     } else {
         if (cantidad == 4) {
 
@@ -74,7 +68,7 @@ function CalcularPrecio() {
                     descuento = preciolamparas * 25 / 100;
                     importefinal = preciolamparas - descuento;
                     console.log(importefinal);
-                    document.getElementById("precioDescuento").value = importefinal;
+                   
 
                     break;
 
@@ -83,7 +77,7 @@ function CalcularPrecio() {
                     descuento = preciolamparas * 25 / 100;
                     importefinal = preciolamparas - descuento;
                     console.log(importefinal);
-                    document.getElementById("precioDescuento").value = importefinal;
+                    
 
                     break;
 
@@ -92,7 +86,7 @@ function CalcularPrecio() {
                     descuento = preciolamparas * 20 / 100;
                     importefinal = preciolamparas - descuento;
                     console.log(importefinal);
-                    document.getElementById("precioDescuento").value = importefinal;
+                   
 
 
 
@@ -108,7 +102,7 @@ function CalcularPrecio() {
                     descuento = preciolamparas * 15 / 100;
                     importefinal = preciolamparas - descuento;
                     console.log(importefinal);
-                    document.getElementById("precioDescuento").value = importefinal;
+                   
 
                     break;
                 case "FelipeLamparas":
@@ -116,7 +110,7 @@ function CalcularPrecio() {
                     descuento = preciolamparas * 10 / 100;
                     importefinal = preciolamparas - descuento;
                     console.log(importefinal);
-                    document.getElementById("precioDescuento").value = importefinal;
+                    
                     break;
 
                 default:
@@ -124,7 +118,7 @@ function CalcularPrecio() {
                     descuento = preciolamparas * 5 / 100;
                     importefinal = preciolamparas - descuento;
                     console.log(importefinal);
-                    document.getElementById("precioDescuento").value = importefinal;
+                    
 
 
             }
@@ -133,14 +127,14 @@ function CalcularPrecio() {
             preciolamparas = cantidad * preciolamparas;
             importefinal = preciolamparas
             console.log(importefinal);
-            document.getElementById("precioDescuento").value = importefinal;
+            
 
 
         }
-
+    }
         if (importefinal < 120) {
 
-
+            document.getElementById("precioDescuento").value = importefinal;
             alert("Usted pago " + importefinal);
 
         } else {
@@ -156,7 +150,7 @@ function CalcularPrecio() {
         }
 
 
-    }
+    
 
 
 }
