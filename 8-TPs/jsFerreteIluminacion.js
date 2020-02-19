@@ -19,14 +19,14 @@ function CalcularPrecio() {
     var marca = document.getElementById("Marca").value;
     var importefinal;
     var descuento;
-    var precioconIB;
-    var IB;
+    var precioconIIBB;
+    var IIBB;
 
     while (cantidad < 1 || isNaN(cantidad))
-    cantidad = prompt("El dato ingresado no es un número, ingreselo nuevamente ");
+        cantidad = prompt("El dato ingresado no es un número, ingreselo nuevamente ");
     document.getElementById("Cantidad").value = cantidad;
-    
-       
+
+
 
     if (cantidad >= 6) {
 
@@ -140,16 +140,17 @@ function CalcularPrecio() {
 
         if (importefinal < 120) {
 
-            document.getElementById("precioDescuento").value = importefinal;
+
+            alert("Usted pago " + importefinal);
 
         } else {
 
 
-            IB = importefinal * 0.10;
-            precioconIB = importefinal + IB;
+            IIBB = importefinal * 0.10;
+            precioconIIBB = importefinal + IIBB;
 
-            document.getElementById("precioDescuento").value = precioconIB;
-            alert("Usted pago " + precioconIB + ", siendo " + IB + " el impuesto que se pagó");
+            document.getElementById("precioDescuento").value = precioconIIBB;
+            alert("Usted pago $ " + precioconIIBB + ", siendo $ " + IIBB + " el impuesto que se pagó");
 
 
         }
