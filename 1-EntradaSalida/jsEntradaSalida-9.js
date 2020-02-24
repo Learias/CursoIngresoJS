@@ -15,7 +15,7 @@ function mostrarAumento() {
     sueldo = parseInt(document.getElementById("sueldo").value);
 
     //realizo calculo de porcentaje mediante regla de tres simple
-    aumento = (sueldo * aumento) / divisor
+    aumento = (sueldo * aumento) / divisor;
     resultado = sueldo + aumento;
 
     document.getElementById("resultado").value = resultado;

@@ -1,15 +1,13 @@
 function mostrar() {
 
-	var flag = 0;
 	var contadornegativos = 0;
 	var contadorpositivos = 0;
 	var contadorcero = 0;
 	var acumnegativo = 0;
 	var acumpositivo = 0;
-	var respuesta = "si";
-	var numero
-	//declarar contadores y variables 
-
+	var respuesta = 'si';
+	var pares = 0;
+	var numero;
 
 
 	do {
@@ -17,39 +15,54 @@ function mostrar() {
 
 		while (isNaN(numero)) {
 
-			numero = parseInt(prompt("El caracter ingresado no es correcto, vuelva a intentarlo"));
+			numero = parseInt(prompt('El caracter ingresado no es correcto, vuelva a intentarlo'));
 		}
 
-		if (numero >= 0) {
+		//suma y contador de positivos
+		if (numero > 0) {
 
 			acumpositivo = numero + acumpositivo;
 			contadorpositivos++;
 
+
 		}
 
+		//resta y contador de negativos
 		else if (numero < 0) {
 
 			acumnegativo = numero + acumnegativo;
 			contadornegativos++;
 
-		} else
+
+			//cantidad de ceros
+		} else {
 
 			contadorcero++;
 
+		}
 
-		respuesta = prompt("Quiere seguir ingresando números?");
+		if (numero % 2 == 0) {
 
-	} while (respuesta = 'si');
+			pares++;
+
+		}
+
+		respuesta = prompt('Quiere seguir ingresando números?');
+
+	} while (respuesta == 'si' || respuesta == 'Si' || respuesta == 'SI');
 
 
-} while (respuesta != "no") {
-
-
+	document.write("La suma de los números positivos es: " + acumpositivo + "</br>");
+	document.write("La suma de los números negativos es: " + acumnegativo + "</br>");
+	document.write("La cantidad de positivos es: " + contadorpositivos + "</br>");
+	document.write("La cantidad de negativos es: " + contadornegativos + "</br>");
+	document.write("La cantidad de ceros es: " + contadorcero + "</br>");
+	document.write("La cantidad de números pares es: " + pares + "</br>");
+	document.write("El promedio de los números positivos es: " + acumpositivo / contadorpositivos + "</br>");
+	document.write("El promedio de los números negativos es: " + acumnegativo / contadornegativos + "</br>");
+	document.write("La diferencia entre números positivos y negativos es: " + (contadorpositivos - contadornegativos) + "</br>");
 
 
 }
-
-
-
 
 //FIN DE LA FUNCIÓN

@@ -8,7 +8,7 @@ function mostrar() {
         while (clave != "utn750") {
             alert("La clave es erronea, vuelva a intentarlo");
 
-            var clave = prompt("ingrese el número clave nuevamente ");
+             clave = prompt("ingrese el número clave nuevamente ");
 
 
 

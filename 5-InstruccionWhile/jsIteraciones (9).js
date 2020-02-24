@@ -21,7 +21,7 @@ function mostrar() {
 
 			maximo = numero;
 
-		}//ingreso flag para poder asignacle valor también a mínimo
+		}//ingreso flag para poder asignarle valor también a mínimo
 		if (flag == 0 || minimo > numero) {
 
 			minimo = numero;
