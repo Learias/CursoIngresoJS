@@ -7,6 +7,8 @@ function mostrar() {
 	var acumpositivo = 0;
 	var respuesta = 'si';
 	var pares = 0;
+	var prompositivos = 0;
+	var promnegativos = 0;
 	var numero;
 
 
@@ -40,7 +42,7 @@ function mostrar() {
 			contadorcero++;
 
 		}
-
+          //cantidad de números pares
 		if (numero % 2 == 0) {
 
 			pares++;
@@ -51,6 +53,15 @@ function mostrar() {
 
 	} while (respuesta == 'si' || respuesta == 'Si' || respuesta == 'SI');
 
+	if (contadorpositivos != 0) {
+
+		prompositivos = acumpositivo / contadornegativos;
+
+	} if (contadornegativos != 0) {
+
+		promnegativos = acumnegativo / contadornegativos;
+	}
+
 
 	document.write("La suma de los números positivos es: " + acumpositivo + "</br>");
 	document.write("La suma de los números negativos es: " + acumnegativo + "</br>");
@@ -58,8 +69,8 @@ function mostrar() {
 	document.write("La cantidad de negativos es: " + contadornegativos + "</br>");
 	document.write("La cantidad de ceros es: " + contadorcero + "</br>");
 	document.write("La cantidad de números pares es: " + pares + "</br>");
-	document.write("El promedio de los números positivos es: " + acumpositivo / contadorpositivos + "</br>");
-	document.write("El promedio de los números negativos es: " + acumnegativo / contadornegativos + "</br>");
+	document.write("El promedio de los números positivos es: " + prompositivos + "</br>");
+	document.write("El promedio de los números negativos es: " + promnegativos + "</br>");
 	document.write("La diferencia entre números positivos y negativos es: " + (contadorpositivos - contadornegativos) + "</br>");
 
 
