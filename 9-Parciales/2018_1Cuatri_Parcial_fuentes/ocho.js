@@ -13,100 +13,103 @@ g) El menor número de las letras minúsculas.
 
 
 function mostrar() {
-  var letra;
   var numero;
-  var seguir;
+  var letra;
   var contadorPares = 0;
   var contadorImpares = 0;
   var contadorCeros = 0;
-  var acumuladorPos = 0;
-  var contadorPos = 0;
-  var promedioPos = 0;
-  var acumuladorNeg = 0;
-  var numeroMax;
-  var numeroMin;
-  var letraMax;
-  var letraMin;
+  var acumuladorPositivos = 0;
+  var acumuladorNegativos = 0;
+  var contadorPositivos = 0;
+  var promedio;
+  var numMaximo;
+  var letraMaxima;
+  var numMinimo;
+  var letraMinima;
+  var seguir;
   var flag = 0;
-  var letraminmenor = "-";
-  var numletramin = 0;
-  var flagMinus = 0 ;
+  var letraMinMenor = "-";
+  var numMinMenor = "-";
 
 
   do {
 
-    // --------- pido los datos y valido -----------
+    //---------------- pido los datos y valido ---------------------
 
-    letra = prompt("Ingrese una letra: ");
+    letra = prompt("Ingrese una letra.");
     while (!((letra >= 'A' && letra <= 'Z') || (letra >= 'a' && letra <= 'z'))) {
-      letra = prompt("Eso no es una letra. Ingrese una letra: ");
+      letra = prompt("Eso no es una letra. Ingrese una letra.");
     }
 
-    numero = parseInt(prompt("Ingrese un numero (-100 y 100): "));
+    numero = parseInt(prompt("Ingrese un numero entre -100 y 100."));
     while (numero < -100 || numero > 100 || isNaN(numero)) {
-      numero = parseInt(prompt("Numero invalido. Ingrese un numero (-100 y 100): "));
+      numero = parseInt(prompt("Número no válido. Ingrese un numero entre -100 y 100."));
     }
 
-    // ---------Pares-----------
+
+    // ----------- pares e impares ----------------
+
     if (numero % 2 == 0) {
-      // par
       contadorPares++;
     }
     else {
-      // impar
       contadorImpares++;
     }
 
-    // ------------- Signo------------------
+    //----------- signos ------------------
 
-    if (numero > 0) {
-      // positivos
-      acumuladorPos = acumuladorPos + numero;
-      contadorPos++;
-    }
-    else if (numero < 0) {
-      // negativos
-      acumuladorNeg = acumuladorNeg + numero;
-    }
-    else {
-      // cero
+    if (numero == 0) {
       contadorCeros++;
     }
-
-    // ------------- Maximos y minimos ---------------
-
-    if (flag == 0 || numero < numeroMin) {
-      numeroMin = numero;
-      letraMin = letra;
+    else if (numero > 0) {
+      acumuladorPositivos = acumuladorPositivos + numero;
+      contadorPositivos++;
     }
-    if (flag == 0 || numero > numeroMax) {
-      numeroMax = numero;
-      letraMax = letra;
+    else {
+      acumuladorNegativos = acumuladorNegativos + numero;
+    }
+
+    //------------ maximos y minimos ----------------
+
+    if (numero > numMaximo || flag == 0) {
+      numMaximo = numero;
+      letraMaxima = letra;
+    }
+    if (numero < numMinimo || flag == 0) {
+      numMinimo = numero;
+      letraMinima = letra;
       flag = 1;
     }
 
-    // menor número de letras minúsculas
+    //---------------- menor valor letra minuscula -------------------------
 
-    if ((letra >= 'a' && letra <= 'z') && (flagMinus == 0 || numero < minimoMinus)) {
-      numletramin = numero;
-      letraminmenor = letra;
-      flagMinus = 1;
+    if ((letra >= 'a' && letra <= 'z') && (flag == 1 || numero < numMinMenor)) {
+      numMinMenor = numero;
+      letraMinMenor = letra;
+      flag = 2;
     }
 
-    seguir = prompt("Quiere continuar?:");
+
+    seguir = prompt("Quiere seguir ingresando datos?");
+
   } while (seguir == 's');
 
-  if (contadorPos != 0) {
-    promedioPos = acumuladorPos / contadorPos;
+  //-------------- promedio positivos ----------------------
+
+  if (contadorPositivos = !0) {
+    promedio = acumuladorPositivos / contadorPositivos;
   }
 
-  document.write("a) Cantidad de números pares: " + contadorPares + "</br>");
-  document.write("b) Cantidad de números impares: " + contadorImpares + "</br>");
-  document.write("c) Cantidad de ceros: " + contadorCeros + "</br>");
-  document.write("d) Promedio de todos los números positivos ingresados: " + promedioPos.toFixed(2) + "</br>");
-  document.write("e) La suma de todos los números negativos: " + acumuladorNeg + "</br>");
-  document.write("f) Número Máximo: " + numeroMax + " Letra: " + letraMax + "</br>");
-  document.write("f) Número Minimo: " + numeroMin + " Letra: " + letraMin + "</br>");
-  document.write("g) Menor número: " + numletramin + " Letra minúscula : " + letraminmenor + "</br>");
+  document.write("Cantidad de números pares: " + contadorPares + "</br>");
+  document.write("Cantidad de números impares: " + contadorImpares + "</br>");
+  document.write("Cantidad de ceros: " + contadorCeros + "</br>");
+  document.write("Promedio de los números positivos: " + promedio + "</br>");
+  document.write("Suma de los números negativos: " + acumuladorNegativos + "</br>");
+  document.write("Letra y número máximo: " + letraMaxima + " , " + numMaximo + "</br>");
+  document.write("Letra y número mínimo: " + letraMinima + " , " + numMinimo + "</br>");
+  document.write("Letra y número minúscula mínimo: " + letraMinMenor + " , " + numMinMenor);
 
 }
+
+
+
