@@ -41,12 +41,12 @@ function mostrar() {
 
 		// sexo del pasajero más viejo y su nombre
 
-		if (edadpasajeromasviejo < edad || flag == 0){
+		if (edadpasajeromasviejo < edad || flag == 0) {
 
-		  sexopasajeromasviejo = sexo;
-		  edadpasajeromasviejo = edad;
-		  nombrepasajeromasviejo = nombre;
-		  flag++;
+			sexopasajeromasviejo = sexo;
+			edadpasajeromasviejo = edad;
+			nombrepasajeromasviejo = nombre;
+			flag++;
 		}
 
 		if ((estadocivil == 'casado' && hombrecasadomasjoven < edad) || contador == 0) {
@@ -55,7 +55,7 @@ function mostrar() {
 			contador++;
 		}
 
-		
+
 		// suma edad de mujeres casadas o viudas + cantidad de casadas y viudas
 
 		switch (sexo) {
@@ -75,7 +75,7 @@ function mostrar() {
 					acumuladoredadhombressolteros = acumuladoredadhombressolteros + edad;
 					contadorhombressolteros++;
 				}
-			}
+		}
 
 		respuesta = prompt('Quiere continuar? ');
 

@@ -41,11 +41,12 @@ function mostrar() {
 		// Del item con mas unidades, el fabricante
 		if (contador == 0 || mayorcantidadunidades < cantidadunidades) {
 			mayorcantidadunidades = cantidadunidades;
-			mayorcantidadfabricante = fabricante ;
+			mayorcantidadfabricante = fabricante;
 		}
 
 		// Del mas caro de los barbijos, la cantidad de unidades y el fabricante
-		if(tipodeproducto == 'barbijo' && barbijomascaro < precio || flagbarbijo == 'no paso'){
+
+		if (tipodeproducto == 'barbijo' && barbijomascaro < precio || flagbarbijo == 'no paso') {
 
 			barbijomascaro = precio;
 			barbijocantidad = cantidadunidades;
@@ -55,7 +56,8 @@ function mostrar() {
 		}
 
 		// Cantidad de jabones en total
-		if(tipodeproducto == 'jabon' ){
+
+		if (tipodeproducto == 'jabon') {
 
 			acumuladordejabones = acumuladordejabones + cantidadunidades;
 		}
