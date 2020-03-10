@@ -1,3 +1,25 @@
+
+/*
+
+Ejercicio práctica
+
+Para la gestión de un hotel,
+ingresar los siguientes datos validados de una reserva
+nombre del huésped
+cantidad de personas 
+cantidad de dia de estadia 
+forma de pago(efectivo , tarjeta o QR)
+
+informar el huésped que trajo más personas en una sola reserva.
+la cantidad de personas que se quedaron más días
+la forma de pago más utilizada.
+el promedio de cantidad de días por reserva
+
+
+*/
+
+
+
 function mostrar() {
     var respuesta = 's';
     var nombrehuesped;
@@ -53,7 +75,7 @@ function mostrar() {
 
         }
 
-        // Forma de pago má utilizada
+        // Forma de pago más utilizada
 
         switch (formasdepago) {
             case ('tarjeta'):
@@ -66,16 +88,15 @@ function mostrar() {
                 contadorqr++;
         }
 
-        if ((contadortarjeta > contadorefectivo) && (contadortarjeta > contadorqr)) {
-            formadepagomax = formasdepago
+        if ((formasdepago == 'tarjeta') && (contadortarjeta > contadorefectivo && contadortarjeta > contadorqr)) {
+            formadepagomax = formasdepago;
+        } else if ((formasdepago == 'efectivo') && (contadorefectivo > contadortarjeta && contadorefectivo > contadorqr)) {
+            formadepagomax = formasdepago;
+        } else if ((formasdepago == 'QR') && (contadorqr > contadorefectivo && contadorqr > contadortarjeta)) {
+            formadepagomax = formasdepago;
         }
-        if ((contadorefectivo > contadortarjeta) && (contadorefectivo > contadorqr)) {
-            formadepagomax = formasdepago
-        }
-        if ((contadorqr > contadortarjeta) && (contadorqr > contadoefectivo)) {
-            formadepagomax = formasdepago
-        }
-        //(A CHEQUEAR, ULTIMO PUNTO RESTANTE)
+
+
 
         // cantidad de dias de reserva en total
         acumuladordediasreserva = acumuladordediasreserva + cantidaddediasdeestadia;
@@ -86,6 +107,10 @@ function mostrar() {
         respuesta = prompt('Quiere continuar?');
     } while (respuesta == 's');
 
+
+    if (contadortarjeta == contadorefectivo && contadorefectivo == contadorqr) {
+        formadepagomax = 'se ha abonado la misma cantidad de veces con los 3 medios de pago'
+    }
 
     if (acumuladordediasreserva != 0) {
         promedio = acumuladordediasreserva / contador;

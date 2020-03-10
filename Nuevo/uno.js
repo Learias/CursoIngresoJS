@@ -1,72 +1,75 @@
 
 function mostrar() {
 
-	var marca;
-	var producto;
-	var tipodeproducto;
-	var precio;
-	var cantidadunidades;
-	var fabricante;
-	var mayorcantidadunidades;
-	var mayorcantidadfabricante;
 	var contador;
-	var flagbarbijo = 'no paso';
-	var barbijomascaro = '-';
-	var barbijocantidad = '-';
+	var nombreproducto;
+	var tipodeproducto;
+	var preciodeproducto;
+	var cantidadunidades;
+	var marca;
+	var fabricante;
+	var barbijomascaro;
+	var barbijocantidad = 0;
 	var barbijofabricante = '-';
-	var acumuladordejabones = 0;
+	var itemmasuni;
+	var fabricanteitemmasuni;
+	var acumuladorjabon = 0;
 
-	for (contador = 0; contador < 5; contador++) {
 
-
-		producto = prompt('ingrese el nombre del producto');
-
-		do {
-			tipodeproducto = prompt('ingrese el tipo de producto (jabon, alcohol o barbijo)');
-		} while (!isNaN(tipodeproducto) || tipodeproducto != 'jabon' && tipodeproducto != 'alcohol' && tipodeproducto != 'barbijo');
+	for (contador = 1 ; contador < 6; contador++) {
 
 		do {
-			precio = prompt('ingrese el precio del producto (entre 100 y 300) ');
-			precio = parseInt(precio);
-		} while (isNaN(precio) || precio < 100 || precio > 300);
-
+			nombreproducto = prompt('Ingrese el nombre del producto ' + contador);
+		} while (!isNaN(nombreproducto));
 		do {
-			cantidadunidades = prompt('Ingrese la cantidad de unidades (entre 1 y 1000) ');
+			tipodeproducto = prompt('Ingrese el tipo de producto (barbijo / jabon / alcohol)');
+		} while (!isNaN(tipodeproducto || tipodeproducto != 'barbijo' && tipodeproducto != 'jabon' && tipodeproducto != 'alcohol'));
+		do {
+			preciodeproducto = prompt('Ingrese el precio del producto');
+			preciodeproducto = parseInt(preciodeproducto);
+		} while (isNaN(preciodeproducto) || preciodeproducto < 100 || preciodeproducto > 300);
+		do {
+			cantidadunidades = prompt('Ingrese la cantidad de unidades');
 			cantidadunidades = parseInt(cantidadunidades);
-		} while (isNaN(cantidadunidades) || cantidadunidades < 0 || cantidadunidades > 1000);
+		} while (isNaN(cantidadunidades) || cantidadunidades < 1 || cantidadunidades > 1000);
 
-		marca = prompt('ingrese la marca del producto ');
-		fabricante = prompt('ingrese el nombre del fabricante ');
+		do {
+			marca = prompt('Ingrese la marca del producto');
+		} while (!isNaN(marca));
 
-		// Del item con mas unidades, el fabricante
-		if (contador == 0 || mayorcantidadunidades < cantidadunidades) {
-			mayorcantidadunidades = cantidadunidades;
-			mayorcantidadfabricante = fabricante;
-		}
+		do {
+			fabricante = prompt('Ingrese el fabricante del producto');
+		} while (!isNaN(fabricante));
 
-		// Del mas caro de los barbijos, la cantidad de unidades y el fabricante
 
-		if (tipodeproducto == 'barbijo' && barbijomascaro < precio || flagbarbijo == 'no paso') {
+		// cantidad de unidades y fabricante del barbijo mas caro
 
-			barbijomascaro = precio;
+		if (tipodeproducto == 'barbijo' && barbijomascaro < preciodeproducto || contador == 1) {
+
+			barbijomascaro = preciodeproducto;
 			barbijocantidad = cantidadunidades;
 			barbijofabricante = fabricante;
-			flagbarbijo = 'si paso';
 
 		}
 
-		// Cantidad de jabones en total
+		// del item con mas unidades, el fabricante
 
-		if (tipodeproducto == 'jabon') {
+		if (contador == 1 || itemmasuni < cantidadunidades) {
 
-			acumuladordejabones = acumuladordejabones + cantidadunidades;
+			itemmasuni = cantidadunidades;
+			fabricanteitemmasuni = fabricante;
 		}
 
+		// unidades de jabón en total
+
+		if(tipodeproducto == 'jabon'){
+
+			acumuladorjabon = acumuladorjabon + cantidadunidades;
+		}
 	}
 
+	document.write('a) la cantidad de unidades del barbijo mas caro es: ' + barbijocantidad + ' y el fabricante es ' + barbijofabricante + '</br>');
+	document.write('b) el fabricante del item con mas unidades es: ' + fabricanteitemmasuni + '</br>');
+	document.write('c) la cantidad de jabon en total es: ' + acumuladorjabon + '</br>');
 
-	document.write('a) la cantidad de unidades del mas caro de los barbijos es ' + barbijocantidad + ' y el fabricante ' + barbijofabricante + '</br>');
-	document.write('b) del item con mas unidades, la cantidad es ' + mayorcantidadunidades + ' y el fabricante ' + mayorcantidadfabricante + '</br>');
-	document.write('c) la cantidad de jabones en total es ' + acumuladordejabones + '</br>');
 }
-
